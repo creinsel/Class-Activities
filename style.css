@@ -1,0 +1,13 @@
+p{
+    font-family:'Dancing Script', cursive;
+
+}
+.p-bold{
+    font-weight: bold;
+}
+.larger-text{
+    font-size: 24px;
+}
+.tall-lines{
+    line-height: 50px;
+}

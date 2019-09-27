@@ -1,0 +1,25 @@
+.font1{
+    font-family: 'Ravi Prakash', cursive;
+}
+.font1:hover{
+    background-color: blue;
+
+}
+
+.font2{
+    font-family:'Monoton', cursive;
+}
+
+.font3{
+    font-family: 'Barriecito', cursive;
+}
+
+a:focus{
+    font-size:100px
+}
+a:active{
+    background-color: aquamarine;
+}
+button:hover{
+  background-color: teal;
+}
