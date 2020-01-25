@@ -7,7 +7,7 @@
   <body>
 
     <script>
-
+        
       var car = {
         make: "Honda",
         model: "Fit",
@@ -50,18 +50,43 @@
       // How would we log...
 
       // The car's make?
-      console.log('make', car.make);
+    //   console.log('make', car.make);
       // The car's model?
-      console.log('model', car.model);
+    //   console.log('model', car.model);
       // The car's mileage?
-      console.log('milage', car.mileage);
+    //   console.log('milage', car.mileage);
       // How would we run the car's driveToWork method?
-      car.driveToWork();
+    //   car.driveToWork();
       // How would we run the car's driveAroundWorld method?
-      car.driveAroundWorld();
+    //   car.driveAroundWorld();
       // How would we run the getTuneUp method?
-      car.getTuneUp();
+    //   car.getTuneUp();
+
+      document.onkeyup= function(event){
+          if (event.key==='d'){
+             car.driveToWork();
+             reWriteStats();
+          }
+
+          if (event.key==='w'){
+              car.driveAroundWorld();
+              reWriteStats();
+          }
+          if (event.key==='t'){
+              car.getTuneUp();
+              reWriteStats();
+          }
+          if (event.key==='h'){
+              car.honk();
+              reWriteStats();
+          }
+      }
+
+      function name(params) {
+          
+
     </script>
+     
     
   </body>
 </html>

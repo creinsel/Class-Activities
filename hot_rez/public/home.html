@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hot Restaurant</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/e5483f52e8.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+            <h1 class="display-3 text-center"><i class="fas fa-fire-alt"></i>Hot Restaruant</h1>
+            
+            <hr class="my-2">
+            <h3 class="text-center">Book your seat before they are all gone</h3>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg vt" href="/rez" role="button"><i class="fas fa-table"></i>View Tables</a>
+              <a class="btn btn-danger btn-lg mkRes" href="#!" role="button"><i class="fas fa-box"></i> Make Reservation</a>
+              <a class="btn btn-light btn-lg home" href="/" role="button"><i class="fas fa-home"></i></a>
+            </p>
+          </div>
+
+          <div class="reservation container">
+            <form method="POST" role="form">
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="Another input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="Example input">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupExampleInput2">Unique ID</label>
+                    <input type="text" class="form-control" id="unique" placeholder="Another input">
+                  </div>
+                  <a class="btn btn-primary btn-lg submit" href="#!" role="button">Submit</a>
+              </form>
+          </div>
+        
+          <ul class="list-group list-group-horizontal m-1">
+            <li class="list-group-item">Clear Table</li>
+            <li class="list-group-item">API Table Link</li>
+            <li class="list-group-item">API Wait List</li>
+          </ul>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+function hideMe(){
+    $(".reservation").hide();
+    $(".home").hide();
+}
+hideMe();
+
+$(".mkRes").on("click", function(event){
+    $(".reservation").show();
+    $(".home").show();
+    $(".mkRes").hide();
+
+})
+    // Question: What does this code do?
+    //jquery listener, on click of add btn, takes form data and creates obj newCharacter
+    $(".submit").on("click", function(event) {
+      event.preventDefault();
+      var newRes = {
+        name: $("#name").val().trim(),
+        email: $("#email").val().trim(),
+        phone: $("#phoneNumber").val().trim(),
+        UniqueID: $("#unique").val().trim()
+      };
+      // Question: What does this code do??
+      //jquery server call, writes newCharacter obj to server once user clicks alert
+      $.post("/api/rez", newRes)
+        .then(function(data) {
+          console.log("home.html", data);
+          alert("Adding Reservation...");
+        });
+    });
+  </script>
+Collapse
+
+
+
+
+</script>
+    </body>
+</html>
